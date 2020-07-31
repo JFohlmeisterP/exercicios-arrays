@@ -7,7 +7,7 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Array21();
         }
 
         static void Array1()
@@ -24,8 +24,13 @@ namespace exercicios_arrays
                 a[i] = Convert.ToInt32(System.Console.ReadLine());
                 System.Console.WriteLine("Informe um valor para B:");
                 b[i] = Convert.ToInt32(System.Console.ReadLine());
+            }
+
+            System.Console.WriteLine("Valor de C:");
+            for (i = 0; i < 15; i++)
+            {
                 c[i] = a[i] - b[i];
-                System.Console.WriteLine($"Valor de C: {c[i]}");
+                System.Console.WriteLine($"{c[i]}");
             }
         }
 
@@ -77,20 +82,20 @@ namespace exercicios_arrays
 
         static void Array4()
         {
-            // pesquisar comparação
+            // teste executado
             int[] a = new int[10];
             int[] b = new int[10];
             var i = 0;
 
             for (i = 0; i < 10; i++)
             {
-                System.Console.WriteLine("Informe um número inteiro:");
+                System.Console.WriteLine("Informe um número inteiro para A:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
-                System.Console.WriteLine("Informe um número inteiro:");
+                System.Console.WriteLine("Informe um número inteiro para B:");
                 b[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            if (a[10] == b[10])
+            if (Enumerable.SequenceEqual(a, b))
             {
                 System.Console.WriteLine("Os arrays são iguais.");
             }
@@ -191,6 +196,37 @@ namespace exercicios_arrays
             {
                 System.Console.WriteLine($"{elemento}");
             }
-       }
+        } 
+
+        static void Array21()   
+        {
+            int[] a = new int[10];
+            var counter = 0;
+            var counter2 = 0;
+            var counter3 = 0;
+
+            while(counter < 10)
+            {
+                Console.WriteLine("Digite um número inteiro:");
+                a[counter] = Convert.ToInt32(Console.ReadLine());
+                counter++;
+            }
+            
+            Array.Clear(a, 0, 10);
+            
+            while(counter2 < 10)
+            {
+                Console.WriteLine("Digite um número inteiro:");
+                a[counter2] = Convert.ToInt32(Console.ReadLine());
+                counter2++;
+            }
+
+            Console.WriteLine("Array A:");
+            while(counter3 < 10)
+            {
+                Console.WriteLine(a[counter3]);
+                counter3++;
+            }
+        }
     }
 }
