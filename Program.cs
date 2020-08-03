@@ -6,8 +6,8 @@ namespace exercicios_arrays
     class Program
     {
         static void Main(string[] args)
-        {
-            Array21();
+        {              
+            Array2Lista2();
         }
 
         static void Array1()
@@ -198,8 +198,11 @@ namespace exercicios_arrays
             }
         } 
 
-        static void Array21()   
+        static void Array1Lista2()   
         {
+            // Popule dois vetores com 10 valores cada. Após esta operação, troque o conteúdo dos vetores.
+            // teste ok
+
             int[] a = new int[10];
             var counter = 0;
             var counter2 = 0;
@@ -227,6 +230,85 @@ namespace exercicios_arrays
                 Console.WriteLine(a[counter3]);
                 counter3++;
             }
+        }
+
+        static void Array2Lista2() 
+        {
+            // Dado um vetor qualquer com 10 números, faça um programa que informa se há ou não números repetidos nesse vetor.
+            int[] a = new int[10];
+            int i = 0;
+
+            for(i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Digite um número inteiro:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+
+            }
+
+        }
+
+        static void Array3Lista2() 
+        {
+            //3)Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não de um novo
+            // produto lançado no mercado. Para isso, forneceu-se o sexo do entrevistado e a sua resposta
+            // (sim ou não). Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
+            // • O número de pessoas que responderam sim;
+            // • O número de pessoas que responderam não;
+            // • A porcentagem de pessoas do sexo feminino que responderam sim;
+            // • A porcentagem de pessoas do sexo masculino que responderam não; 
+            string[] name = new string[10];
+            string[] answer = new string[10];
+            var i = 0;
+            var yescounter = 0;
+            var nocounter = 0;
+
+            for(i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Informe seu nome:");
+                name[i] = Console.ReadLine();
+                Console.WriteLine("Se você gostou do produto, digite (sim):");
+                Console.WriteLine("Se você não gostou do produto, digite (nao):");
+                answer[i] = Console.ReadLine();
+                
+                if ()
+            }
+
+            
+        }
+
+        static void Array4Lista2() 
+        {
+            // 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz // A do tipo vetor.
+            // No final, apresente o total da soma de todos os elementos que sejam impares.
+        }
+
+        static void Array5Lista2() 
+        {
+            // 5)Contar quantos valores de um vetor de 10 posições são positivos.
+        }
+
+        static void Array6Lista2() 
+        {
+            // 6)Ler um vetor de 10 posições (aceitar somente números positivos). Escrever a seguir o
+            // valor do maior elemento de Q e a respectiva posição que ele ocupa no vetor.
+        }
+
+        static void Array7Lista2() 
+        {
+            // 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número
+            // residindo na mesma posição do vetor que seu valor numérico.
+        }
+
+        static void Array8Lista2() 
+        {
+            // 8)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto.
+            // No final, imprima quantas destas são vogais.
+        }
+
+        static void Array9Lista2() 
+        {
+            // 9)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto.
+            // No final, imprima a string resultante da soma das strings que residem em índices pares.
         }
     }
 }
