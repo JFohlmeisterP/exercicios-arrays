@@ -7,7 +7,7 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {              
-            Array2Lista2();
+            Array9Lista2();
         }
 
         static void Array1()
@@ -201,6 +201,7 @@ namespace exercicios_arrays
         static void Array1Lista2()   
         {
             // Popule dois vetores com 10 valores cada. Após esta operação, troque o conteúdo dos vetores.
+
             // teste ok
 
             int[] a = new int[10];
@@ -249,42 +250,106 @@ namespace exercicios_arrays
 
         static void Array3Lista2() 
         {
-            //3)Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não de um novo
+            // 3)Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não de um novo
             // produto lançado no mercado. Para isso, forneceu-se o sexo do entrevistado e a sua resposta
             // (sim ou não). Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
             // • O número de pessoas que responderam sim;
             // • O número de pessoas que responderam não;
             // • A porcentagem de pessoas do sexo feminino que responderam sim;
-            // • A porcentagem de pessoas do sexo masculino que responderam não; 
-            string[] name = new string[10];
+            // • A porcentagem de pessoas do sexo masculino que responderam não;
+
+            // teste ok
+             
+            string[] sex = new string[10];
             string[] answer = new string[10];
             var i = 0;
             var yescounter = 0;
             var nocounter = 0;
+            var fcounter = 0.0;
+            var mcounter = 0.0;
 
             for(i = 0; i < 10; i++)
             {
-                Console.WriteLine("Informe seu nome:");
-                name[i] = Console.ReadLine();
-                Console.WriteLine("Se você gostou do produto, digite (sim):");
-                Console.WriteLine("Se você não gostou do produto, digite (nao):");
+                Console.WriteLine("Informe o sexo:");
+                Console.WriteLine("[F] Feminino  [M] Masculino");
+                sex[i] = Console.ReadLine();
+                Console.WriteLine("Se você gostou do produto, digite [SIM]:");
+                Console.WriteLine("Se você não gostou do produto, digite [NAO]:");
                 answer[i] = Console.ReadLine();
                 
-                if ()
+                if (answer[i] == "SIM")
+                {
+                    yescounter++;
+                }
+                else
+                {
+                    nocounter++;
+                }
+
+                if(sex[i] == "F" && answer[i] == "SIM")
+                {
+                    fcounter++;
+                }
+                else if(sex[i] == "M" && answer[i] == "NAO")
+                {
+                    mcounter++;
+                }
             }
 
+            Console.WriteLine($"{yescounter} pessoas gostaram do produto.");
+            Console.WriteLine($"{nocounter} pessoas não gostaram do produto.");
+            Console.WriteLine($"A porcentagem de pessoas do sexo feminino que respoderam positivamente foi de {(fcounter / 10) * 100}%");
+            Console.WriteLine($"A porcentagem de pessoas do sexo masculino que respoderam negativamente foi de {(mcounter / 10) * 100}%");
             
         }
 
         static void Array4Lista2() 
         {
             // 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz // A do tipo vetor.
-            // No final, apresente o total da soma de todos os elementos que sejam impares.
+            // No final, apresente o total da soma de todos os elementos que sejam ímpares.
+
+            // teste ok
+
+            int[] a = new int[5];
+            var i = 0;
+            var soma = 0;
+
+            for(i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Informe um número inteiro:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+
+                if(a[i] % 2 == 1)
+                {
+                    soma += a[i];
+                }
+            }
+
+            Console.WriteLine($"A soma dos ímpares é {soma}");
         }
 
         static void Array5Lista2() 
         {
             // 5)Contar quantos valores de um vetor de 10 posições são positivos.
+
+            // teste ok
+
+            int[] a = new int[10];
+            var i = 0;
+            var count = 0;
+
+            for(i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine("Informe um número inteiro:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+
+                if(a[i] > 0)
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine($"O total de positivos é {count}");
         }
 
         static void Array6Lista2() 
@@ -303,12 +368,44 @@ namespace exercicios_arrays
         {
             // 8)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto.
             // No final, imprima quantas destas são vogais.
+
+            // teste ok
+
+            string[] a = new string[10];
+            var i = 0;
+            var count = 0;
+
+            for(i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine("Informe uma letra minúscula:");
+                a[i] = Console.ReadLine();
+
+                if(a[i] == "a" || a[i] == "e" || a[i] == "i" || a[i] == "o" || a[i] == "u")
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine($"O total de vogais é {count}");
         }
 
         static void Array9Lista2() 
         {
             // 9)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto.
             // No final, imprima a string resultante da soma das strings que residem em índices pares.
+
+            // teste ok
+
+            string[] a = new string[10];
+            var i = 0;
+
+            for(i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine("Informe uma letra minúscula:");
+                a[i] = Console.ReadLine();
+            }
+
+            Console.WriteLine($"String resultante: {a[2]}{a[4]}{a[6]}{a[8]}");
         }
     }
 }
