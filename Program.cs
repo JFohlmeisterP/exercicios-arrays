@@ -7,7 +7,7 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {              
-            Array9Lista2();
+            Array4();
         }
 
         static void Array1()
@@ -82,27 +82,48 @@ namespace exercicios_arrays
 
         static void Array4()
         {
-            // teste executado
-            int[] a = new int[10];
-            int[] b = new int[10];
-            var i = 0;
+            // 4-Leia dois arrays A e B com 10 elementos. Em seguida, compare os arrays e verifique se
+            // os mesmos são iguais ou diferentes.
+            
+            // teste ok
 
-            for (i = 0; i < 10; i++)
+            int[] a = new int[3];
+            int[] b = new int[3];
+            var i = 0;
+            var counter = 0;
+
+            for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um número inteiro para A:");
+                System.Console.WriteLine("Informe um inteiro para o array A:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
-                System.Console.WriteLine("Informe um número inteiro para B:");
+            }
+
+            for (i = 0; i < a.Length; i++)
+            {
+                System.Console.WriteLine("Informe um inteiro para o array B:");
                 b[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            if (Enumerable.SequenceEqual(a, b))
+            for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Os arrays são iguais.");
+                if (a[i] == b[i])
+                {
+                    counter++;
+                }
             }
-            else
-            {
-                System.Console.WriteLine("Os arrays são diferentes.");
-            }
+
+            var message = counter == a.Length ? "Os arrays são iguais." : "Os arrays são diferentes.";
+            Console.WriteLine(message);
+
+
+            // if (Enumerable.SequenceEqual(a, b))
+            // {
+            //     System.Console.WriteLine("Os arrays são iguais.");
+            // }
+            // else
+            // {
+            //     System.Console.WriteLine("Os arrays são diferentes.");
+            // }
 
         }
 
@@ -236,6 +257,9 @@ namespace exercicios_arrays
         static void Array2Lista2() 
         {
             // Dado um vetor qualquer com 10 números, faça um programa que informa se há ou não números repetidos nesse vetor.
+
+            // teste ok
+            
             int[] a = new int[10];
             int i = 0;
 
@@ -244,6 +268,17 @@ namespace exercicios_arrays
                 Console.WriteLine("Digite um número inteiro:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
 
+            }
+
+            var quantidadeRepetidos = a.Length - a.Distinct().Count();;
+
+            if(quantidadeRepetidos > 0)
+            {
+                Console.WriteLine("Sim, existem números repetidos.");
+            }
+            else
+            {
+                Console.WriteLine("Não existem números repetidos.");
             }
 
         }
@@ -356,12 +391,53 @@ namespace exercicios_arrays
         {
             // 6)Ler um vetor de 10 posições (aceitar somente números positivos). Escrever a seguir o
             // valor do maior elemento de Q e a respectiva posição que ele ocupa no vetor.
+
+            // teste ok
+
+            int[] q = new int[10];
+            var i = 0;
+            var maior = 0;
+            var index = 0;
+
+            for(i = 0; i < q.Length; i++)
+            {
+                Console.WriteLine("Informe um número inteiro positivo:");
+                q[i] = Convert.ToInt32(Console.ReadLine());
+
+                if(q[i] > maior)
+                {
+                    maior = q[i];
+                    index = i;
+                }
+            }
+
+            Console.WriteLine($"O maior elemento é o {maior}, e ocupa a posição {index} dentro do array.");
         }
 
         static void Array7Lista2() 
         {
             // 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número
             // residindo na mesma posição do vetor que seu valor numérico.
+
+            // teste ok
+
+            int[] a = new int[10];
+            var i = 0;
+            var count = 0;
+
+            for(i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine("Informe um número inteiro:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+
+                if(a[i] == i)
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine($"A quantidade de números iguais à sua posição é {count}");
+
         }
 
         static void Array8Lista2() 
