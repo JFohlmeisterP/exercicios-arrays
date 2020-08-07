@@ -7,27 +7,32 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {              
-            Array4();
+            Array2Lista2();
         }
 
         static void Array1()
         {
-            // teste executado
+            // teste ok
+
             int[] a = new int[15];
             int[] b = new int[15];
             int[] c = new int[15];
             int i = 0;
 
-            for (i = 0; i < 15; i++)
+            for (i = 0; i < a.Length; i++)
             {
                 System.Console.WriteLine("Informe um valor para A:");
                 a[i] = Convert.ToInt32(System.Console.ReadLine());
+            }
+
+            for (i = 0; i < b.Length; i++)
+            {
                 System.Console.WriteLine("Informe um valor para B:");
                 b[i] = Convert.ToInt32(System.Console.ReadLine());
             }
 
             System.Console.WriteLine("Valor de C:");
-            for (i = 0; i < 15; i++)
+            for (i = 0; i < c.Length; i++)
             {
                 c[i] = a[i] - b[i];
                 System.Console.WriteLine($"{c[i]}");
@@ -36,11 +41,12 @@ namespace exercicios_arrays
 
         static void Array2()
         {
-            // teste executado
+            // teste ok
+
             int[] num = new int[10];
             var i = 0;
 
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < num.Length; i++)
             {
                 System.Console.WriteLine("Informe um número inteiro:");
                 num[i] = Convert.ToInt32(Console.ReadLine());
@@ -56,27 +62,41 @@ namespace exercicios_arrays
 
         static void Array3()
         {
-            // teste executado
-            int[] a = new int[10];
-            var i = 0;
+            // teste ok
 
-            for (i = 0; i < 10; i++)
+            double[] a = new double[10];
+            var i = 0;
+            var existe = false;
+
+            for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um número inteiro:");
+                System.Console.WriteLine("Informe um número:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            System.Console.WriteLine("Informe um número inteiro a ser pesquisado:");
+            System.Console.WriteLine("Informe um número a ser pesquisado:");
             var num = Convert.ToInt32(Console.ReadLine());
 
-            if (a.Contains(num))
+            foreach(var item in a)
             {
-                System.Console.WriteLine("O número existe no array.");
+                if(item == num)
+                {
+                    existe = true;
+                    break;
+                }
             }
-            else
-            {
-                System.Console.WriteLine("Número inexistente.");
-            }
+
+            var message = existe ? "O número existe no array." : "Número inexistente.";
+            Console.WriteLine(message);
+
+            // if (a.Contains(num))
+            // {
+            //     System.Console.WriteLine("O número existe no array.");
+            // }
+            // else
+            // {
+            //     System.Console.WriteLine("Número inexistente.");
+            // }
 
         }
 
@@ -129,27 +149,28 @@ namespace exercicios_arrays
 
         static void Array5()
         {
-            // teste executado
-            int[] a = new int [15];
-            var soma = 0;
-            var i = 0;
-            var media = 0;
-            var counter = 0;
-            var counter2 = 0;
-            var counter3 = 0;
-            var counter4 = 0;
+            // teste ok
 
-            for (i = 0; i < 15; i++)
+            double[] a = new double [4];
+            double soma = 0.0;
+            var i = 0;
+            double media;
+            int counter = 0;
+            int counter2 = 0;
+            int counter3 = 0;
+            int counter4 = 0;
+
+            for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um número inteiro:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
-                soma = soma + a[i];
+                System.Console.WriteLine("Informe um número:");
+                a[i] = Convert.ToDouble(Console.ReadLine());
+                soma += a[i];
                 counter++;
             }
 
             media = soma / counter;
 
-            for (i = 0; i < 15; i++)
+            for (i = 0; i < a.Length; i++)
             {
                 if (a[i] > media)
                 {
@@ -165,7 +186,7 @@ namespace exercicios_arrays
                 }
             }
 
-           System.Console.WriteLine($"A média final é {counter2}.");
+           System.Console.WriteLine($"A média final é {media}.");
            System.Console.WriteLine($"{counter2} estão acima da média.");
            System.Console.WriteLine($"{counter3} estão na média.");
            System.Console.WriteLine($"{counter4} estão abaixo da média.");
@@ -180,7 +201,7 @@ namespace exercicios_arrays
             int[] c = new int[12];
             var i = 0;
 
-            for (i = 0; i < 12; i++)
+            for (i = 0; i < a.Length; i++)
             {
                 System.Console.WriteLine("Informe um número inteiro:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
@@ -188,12 +209,12 @@ namespace exercicios_arrays
 
             System.Console.WriteLine("Ordem crescente de A:");
             var temp = a.ToList().OrderBy(x => x);
-            foreach (var elemento in temp)
+            foreach (var item in temp)
             {
-                System.Console.WriteLine($"{elemento}");
+                System.Console.WriteLine($"{item}");
             }
 
-            for (i = 0; i < 12; i++)
+            for (i = 0; i < b.Length; i++)
             {
                 System.Console.WriteLine("Informe um número inteiro:");
                 b[i] = Convert.ToInt32(Console.ReadLine());
@@ -201,9 +222,9 @@ namespace exercicios_arrays
 
             System.Console.WriteLine("Ordem decrescente de B:");
             temp = b.ToList().OrderByDescending(x => x);
-            foreach (var elemento in temp)
+            foreach (var item in temp)
             {
-                System.Console.WriteLine($"{elemento}");
+                System.Console.WriteLine($"{item}");
             }
             
             for (i = 0; i < 12; i++)
@@ -213,9 +234,9 @@ namespace exercicios_arrays
 
             System.Console.WriteLine("Ordem crescente de C:");
             temp = c.ToList().OrderBy(x => x);
-            foreach (var elemento in temp)
+            foreach (var item in temp)
             {
-                System.Console.WriteLine($"{elemento}");
+                System.Console.WriteLine($"{item}");
             }
         } 
 
@@ -226,31 +247,26 @@ namespace exercicios_arrays
             // teste ok
 
             int[] a = new int[10];
-            var counter = 0;
-            var counter2 = 0;
-            var counter3 = 0;
+            var i = 0;
 
-            while(counter < 10)
+            for(i = 0; i < a.Length; i++)
             {
-                Console.WriteLine("Digite um número inteiro:");
-                a[counter] = Convert.ToInt32(Console.ReadLine());
-                counter++;
+                Console.WriteLine("Digite um número inteiro para A:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
             }
             
             Array.Clear(a, 0, 10);
             
-            while(counter2 < 10)
+            for(i = 0; i < a.Length; i++)
             {
-                Console.WriteLine("Digite um número inteiro:");
-                a[counter2] = Convert.ToInt32(Console.ReadLine());
-                counter2++;
+                Console.WriteLine("Digite um novo número inteiro para A:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
             }
 
             Console.WriteLine("Array A:");
-            while(counter3 < 10)
+            for(i = 0; i < a.Length; i++)
             {
-                Console.WriteLine(a[counter3]);
-                counter3++;
+                Console.WriteLine(a[i]);
             }
         }
 
@@ -260,26 +276,28 @@ namespace exercicios_arrays
 
             // teste ok
             
-            int[] a = new int[10];
+            int[] a = new int[3];
             int i = 0;
+            var existe = false;
 
-            for(i = 0; i < 10; i++)
+            for(i = 0; i < a.Length; i++)
             {
                 Console.WriteLine("Digite um número inteiro:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
 
             }
 
-            var quantidadeRepetidos = a.Length - a.Distinct().Count();;
+            for(i = 0; i < a.Length - 1; i++)
+            {
+                if(a[i] == a[i + 1])
+                {
+                    existe = true;
+                    break;
+                }
+            }
 
-            if(quantidadeRepetidos > 0)
-            {
-                Console.WriteLine("Sim, existem números repetidos.");
-            }
-            else
-            {
-                Console.WriteLine("Não existem números repetidos.");
-            }
+            var message = existe ? "Sim, existem números repetidos." : "Não existem números repetidos.";
+            Console.WriteLine(message);
 
         }
 
@@ -298,10 +316,10 @@ namespace exercicios_arrays
             string[] sex = new string[10];
             string[] answer = new string[10];
             var i = 0;
-            var yescounter = 0;
-            var nocounter = 0;
-            var fcounter = 0.0;
-            var mcounter = 0.0;
+            var yes = 0;
+            var no = 0;
+            var femaleYes = 0.0;
+            var maleNo = 0.0;
 
             for(i = 0; i < 10; i++)
             {
@@ -314,33 +332,33 @@ namespace exercicios_arrays
                 
                 if (answer[i] == "SIM")
                 {
-                    yescounter++;
+                    yes++;
                 }
                 else
                 {
-                    nocounter++;
+                    no++;
                 }
 
                 if(sex[i] == "F" && answer[i] == "SIM")
                 {
-                    fcounter++;
+                    femaleYes++;
                 }
                 else if(sex[i] == "M" && answer[i] == "NAO")
                 {
-                    mcounter++;
+                    maleNo++;
                 }
             }
 
-            Console.WriteLine($"{yescounter} pessoas gostaram do produto.");
-            Console.WriteLine($"{nocounter} pessoas não gostaram do produto.");
-            Console.WriteLine($"A porcentagem de pessoas do sexo feminino que respoderam positivamente foi de {(fcounter / 10) * 100}%");
-            Console.WriteLine($"A porcentagem de pessoas do sexo masculino que respoderam negativamente foi de {(mcounter / 10) * 100}%");
+            Console.WriteLine($"{yes} pessoas gostaram do produto.");
+            Console.WriteLine($"{no} pessoas não gostaram do produto.");
+            Console.WriteLine($"A porcentagem de pessoas do sexo feminino que respoderam positivamente foi de {(femaleYes / 10) * 100}%");
+            Console.WriteLine($"A porcentagem de pessoas do sexo masculino que respoderam negativamente foi de {(maleNo / 10) * 100}%");
             
         }
 
         static void Array4Lista2() 
         {
-            // 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz // A do tipo vetor.
+            // 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz A do tipo vetor.
             // No final, apresente o total da soma de todos os elementos que sejam ímpares.
 
             // teste ok
@@ -349,7 +367,7 @@ namespace exercicios_arrays
             var i = 0;
             var soma = 0;
 
-            for(i = 0; i < 5; i++)
+            for(i = 0; i < a.Length; i++)
             {
                 Console.WriteLine("Informe um número inteiro:");
                 a[i] = Convert.ToInt32(Console.ReadLine());
@@ -482,6 +500,28 @@ namespace exercicios_arrays
             }
 
             Console.WriteLine($"String resultante: {a[2]}{a[4]}{a[6]}{a[8]}");
+        }
+
+        static void exemplos() 
+        {
+            // exemplo de Sort com Foreach
+            
+            int[] a = new int[12];
+            var i = 0;
+
+            for (i = 0; i < a.Length; i++)
+            {
+                System.Console.WriteLine("Informe um número inteiro:");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            System.Console.WriteLine("Ordem crescente de A:");
+            Array.Sort(a);
+
+            foreach(var item in a)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
