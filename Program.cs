@@ -12,6 +12,9 @@ namespace exercicios_arrays
 
         static void Array1()
         {
+            // 1-Leia dois arrays A e B com 15 elementos. Construir um array C, onde cada elemento de C
+            // é a subtração do elemento correspondente de A com B.
+
             // teste ok
 
             int[] a = new int[15];
@@ -21,14 +24,44 @@ namespace exercicios_arrays
 
             for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um valor para A:");
-                a[i] = Convert.ToInt32(System.Console.ReadLine());
+                System.Console.WriteLine("Informe um valor inteiro para A:");
+
+                while(true)
+                {
+                   try
+                   {
+                        a[i] = Convert.ToInt32(System.Console.ReadLine());
+                        break;
+                   }
+                   catch (System.Exception)
+                   {
+                       Console.WriteLine("Valor inválido.");
+                       Console.WriteLine("Informe um valor inteiro para A:");
+                   }
+
+                }
+                
             }
 
             for (i = 0; i < b.Length; i++)
             {
-                System.Console.WriteLine("Informe um valor para B:");
-                b[i] = Convert.ToInt32(System.Console.ReadLine());
+                System.Console.WriteLine("Informe um valor inteiro para B:");
+
+                while(true)
+                {
+                   try
+                   {
+                        b[i] = Convert.ToInt32(System.Console.ReadLine());
+                        break;
+                   }
+                   catch (System.Exception)
+                   {
+                       Console.WriteLine("Valor inválido.");
+                       Console.WriteLine("Informe um valor inteiro para B:");
+                   }
+
+                }
+
             }
 
             System.Console.WriteLine("Valor de C:");
@@ -41,6 +74,8 @@ namespace exercicios_arrays
 
         static void Array2()
         {
+            // 2-Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
+
             // teste ok
 
             int[] num = new int[10];
@@ -48,11 +83,26 @@ namespace exercicios_arrays
 
             for (i = 0; i < num.Length; i++)
             {
-                System.Console.WriteLine("Informe um número inteiro:");
-                num[i] = Convert.ToInt32(Console.ReadLine());
+                System.Console.WriteLine("Informe um valor inteiro:");
+
+                while(true)
+                {
+                   try
+                   {
+                        num[i] = Convert.ToInt32(System.Console.ReadLine());
+                        break;
+                   }
+                   catch (System.Exception)
+                   {
+                       Console.WriteLine("Valor inválido.");
+                       Console.WriteLine("Informe um valor inteiro:");
+                   }
+
+                }
+                
             }
 
-            System.Console.WriteLine("Lista decrescente dos inteiros:");
+            System.Console.WriteLine("Lista inversa dos inteiros:");
 
             for (i = 9; i >= 0; i--)
             {
@@ -62,6 +112,11 @@ namespace exercicios_arrays
 
         static void Array3()
         {
+            // 3-Leia 10 elementos e armazene em um array A. Em seguida, solicite pelo teclado um
+            // número qualquer e pesquise no array se o número existe. Caso, seja verdade imprima a
+            // mensagem: “O número existe no array” , caso contrário “Número inexistente”.
+                        
+            
             // teste ok
 
             double[] a = new double[10];
@@ -71,11 +126,26 @@ namespace exercicios_arrays
             for (i = 0; i < a.Length; i++)
             {
                 System.Console.WriteLine("Informe um número:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
+
+                while(true)
+                {
+                   try
+                   {
+                        a[i] = Convert.ToDouble(System.Console.ReadLine());
+                        break;
+                   }
+                   catch (System.Exception)
+                   {
+                       Console.WriteLine("Valor inválido.");
+                       Console.WriteLine("Informe um número:");
+                   }
+
+                }
+                
             }
 
             System.Console.WriteLine("Informe um número a ser pesquisado:");
-            var num = Convert.ToInt32(Console.ReadLine());
+            var num = Convert.ToDouble(Console.ReadLine());
 
             foreach(var item in a)
             {
@@ -107,21 +177,51 @@ namespace exercicios_arrays
             
             // teste ok
 
-            int[] a = new int[3];
-            int[] b = new int[3];
+            int[] a = new int[10];
+            int[] b = new int[10];
             var i = 0;
             var counter = 0;
 
             for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um inteiro para o array A:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
+                System.Console.WriteLine("Informe um valor inteiro para A:");
+
+                while(true)
+                {
+                   try
+                   {
+                        a[i] = Convert.ToInt32(System.Console.ReadLine());
+                        break;
+                   }
+                   catch (System.Exception)
+                   {
+                       Console.WriteLine("Valor inválido.");
+                       Console.WriteLine("Informe um valor inteiro para A:");
+                   }
+
+                }
+                
             }
 
-            for (i = 0; i < a.Length; i++)
+            for (i = 0; i < b.Length; i++)
             {
-                System.Console.WriteLine("Informe um inteiro para o array B:");
-                b[i] = Convert.ToInt32(Console.ReadLine());
+                System.Console.WriteLine("Informe um valor inteiro para B:");
+
+                while(true)
+                {
+                   try
+                   {
+                        b[i] = Convert.ToInt32(System.Console.ReadLine());
+                        break;
+                   }
+                   catch (System.Exception)
+                   {
+                       Console.WriteLine("Valor inválido.");
+                       Console.WriteLine("Informe um valor inteiro para B:");
+                   }
+
+                }
+
             }
 
             for (i = 0; i < a.Length; i++)
@@ -149,9 +249,12 @@ namespace exercicios_arrays
 
         static void Array5()
         {
+            // 5-Leia um array A com 15 elementos, e calcule a média aritmética dos mesmos, em
+            // seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
+            
             // teste ok
 
-            double[] a = new double [4];
+            double[] a = new double [15];
             double soma = 0.0;
             var i = 0;
             double media;
@@ -196,9 +299,9 @@ namespace exercicios_arrays
         static void Array6()
        {
             // teste executado
-            int[] a = new int[12];
-            int[] b = new int[12];
-            int[] c = new int[12];
+            int[] a = new int[3];
+            int[] b = new int[3];
+            int[] c = new int[3];
             var i = 0;
 
             for (i = 0; i < a.Length; i++)
@@ -208,8 +311,8 @@ namespace exercicios_arrays
             }
 
             System.Console.WriteLine("Ordem crescente de A:");
-            var temp = a.ToList().OrderBy(x => x);
-            foreach (var item in temp)
+            var ordem = a.OrderBy(x => x);
+            foreach (var item in ordem)
             {
                 System.Console.WriteLine($"{item}");
             }
@@ -221,20 +324,20 @@ namespace exercicios_arrays
             }
 
             System.Console.WriteLine("Ordem decrescente de B:");
-            temp = b.ToList().OrderByDescending(x => x);
-            foreach (var item in temp)
+            ordem = b.OrderByDescending(x => x);
+            foreach (var item in ordem)
             {
                 System.Console.WriteLine($"{item}");
             }
             
-            for (i = 0; i < 12; i++)
+            for (i = 0; i < c.Length; i++)
             {
                 c[i] = a[i] + b[i];
             }
 
             System.Console.WriteLine("Ordem crescente de C:");
-            temp = c.ToList().OrderBy(x => x);
-            foreach (var item in temp)
+            ordem = c.OrderBy(x => x);
+            foreach (var item in ordem)
             {
                 System.Console.WriteLine($"{item}");
             }
@@ -278,7 +381,6 @@ namespace exercicios_arrays
             
             int[] a = new int[3];
             int i = 0;
-            var existe = false;
 
             for(i = 0; i < a.Length; i++)
             {
@@ -287,16 +389,9 @@ namespace exercicios_arrays
 
             }
 
-            for(i = 0; i < a.Length - 1; i++)
-            {
-                if(a[i] == a[i + 1])
-                {
-                    existe = true;
-                    break;
-                }
-            }
+            var quantidadeRepetidos = a.Length - a.Distinct().Count();
 
-            var message = existe ? "Sim, existem números repetidos." : "Não existem números repetidos.";
+            var message = quantidadeRepetidos > 0 ? "Sim, existem números repetidos." : "Não existem números repetidos.";
             Console.WriteLine(message);
 
         }
