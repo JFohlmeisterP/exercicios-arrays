@@ -7,7 +7,7 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {              
-            Array2Lista2();
+            Array4();
         }
 
         static void Array1()
@@ -177,17 +177,17 @@ namespace exercicios_arrays
             
             // teste ok
 
-            int[] a = new int[10];
-            int[] b = new int[10];
-            var i = 0;
-            var counter = 0;
+            int[] a = new int[3];
+            int?[] b = new int?[3];
+            var equal = true;
 
-            for (i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um valor inteiro para A:");
 
                 while(true)
                 {
+                    System.Console.WriteLine("Informe um valor inteiro para A:");
+
                    try
                    {
                         a[i] = Convert.ToInt32(System.Console.ReadLine());
@@ -196,7 +196,6 @@ namespace exercicios_arrays
                    catch (System.Exception)
                    {
                        Console.WriteLine("Valor inválido.");
-                       Console.WriteLine("Informe um valor inteiro para A:");
                    }
 
                 }
@@ -205,10 +204,11 @@ namespace exercicios_arrays
 
             for (i = 0; i < b.Length; i++)
             {
-                System.Console.WriteLine("Informe um valor inteiro para B:");
-
+                
                 while(true)
                 {
+                    System.Console.WriteLine("Informe um valor inteiro para B:");
+
                    try
                    {
                         b[i] = Convert.ToInt32(System.Console.ReadLine());
@@ -217,33 +217,33 @@ namespace exercicios_arrays
                    catch (System.Exception)
                    {
                        Console.WriteLine("Valor inválido.");
-                       Console.WriteLine("Informe um valor inteiro para B:");
                    }
 
                 }
 
-            }
+                var estaContido = false;
 
-            for (i = 0; i < a.Length; i++)
-            {
-                if (a[i] == b[i])
+                for (var j = 0; j < b.Length; j++)
                 {
-                    counter++;
+                    if (a[i] == b[j])
+                    {
+                        estaContido = true;
+                        b[j] = null;
+                        break;
+                    }
                 }
+
+                if(!estaContido)
+                {
+                    equal = false;
+                }               
             }
 
-            var message = counter == a.Length ? "Os arrays são iguais." : "Os arrays são diferentes.";
+            var message = equal ? "Os arrays são iguais." : "Os arrays são diferentes.";
             Console.WriteLine(message);
 
-
-            // if (Enumerable.SequenceEqual(a, b))
-            // {
-            //     System.Console.WriteLine("Os arrays são iguais.");
-            // }
-            // else
-            // {
-            //     System.Console.WriteLine("Os arrays são diferentes.");
-            // }
+            // input (1, 2, 3) (3, 2, 1)
+            // output (iguais)
 
         }
 
@@ -265,10 +265,23 @@ namespace exercicios_arrays
 
             for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um número:");
-                a[i] = Convert.ToDouble(Console.ReadLine());
-                soma += a[i];
-                counter++;
+                while (true)
+                {
+                    System.Console.WriteLine("Informe um número:");
+
+                    try
+                    {
+                        a[i] = Convert.ToDouble(Console.ReadLine());
+                        soma += a[i];
+                        counter++;
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        System.Console.WriteLine("Valor inválido.");
+                    }
+                }
+
             }
 
             media = soma / counter;
@@ -289,10 +302,10 @@ namespace exercicios_arrays
                 }
             }
 
-           System.Console.WriteLine($"A média final é {media}.");
-           System.Console.WriteLine($"{counter2} estão acima da média.");
-           System.Console.WriteLine($"{counter3} estão na média.");
-           System.Console.WriteLine($"{counter4} estão abaixo da média.");
+           System.Console.WriteLine($"A média final é {media}");
+           System.Console.WriteLine($"{counter2} estão acima da média");
+           System.Console.WriteLine($"{counter3} estão na média");
+           System.Console.WriteLine($"{counter4} estão abaixo da média");
 
         }
 
@@ -306,8 +319,21 @@ namespace exercicios_arrays
 
             for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um número inteiro:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
+
+                while (true)
+                {
+                    System.Console.WriteLine("Informe um número inteiro:");
+
+                    try
+                    {
+                        a[i] = Convert.ToInt32(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        System.Console.WriteLine("Valor inválido!"); 
+                    }
+                }
             }
 
             System.Console.WriteLine("Ordem crescente de A:");
@@ -320,7 +346,19 @@ namespace exercicios_arrays
             for (i = 0; i < b.Length; i++)
             {
                 System.Console.WriteLine("Informe um número inteiro:");
-                b[i] = Convert.ToInt32(Console.ReadLine());
+
+                while (true)
+                {
+                    try
+                    {
+                        b[i] = Convert.ToInt32(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        System.Console.WriteLine("Valor inválido!"); 
+                    }
+                }
             }
 
             System.Console.WriteLine("Ordem decrescente de B:");
@@ -349,21 +387,45 @@ namespace exercicios_arrays
 
             // teste ok
 
-            int[] a = new int[10];
+            int[] a = new int[3];
             var i = 0;
 
             for(i = 0; i < a.Length; i++)
             {
-                Console.WriteLine("Digite um número inteiro para A:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
+                while(true)
+                {
+                    Console.WriteLine("Digite um número inteiro para A:");
+
+                    try
+                    {
+                        a[i] = Convert.ToInt32(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Valor inválido!");
+                    }
+                }
             }
             
-            Array.Clear(a, 0, 10);
+            Array.Clear(a, 0, a.Length);
             
             for(i = 0; i < a.Length; i++)
             {
-                Console.WriteLine("Digite um novo número inteiro para A:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
+                while(true)
+                {
+                    Console.WriteLine("Digite um novo valor para A:");
+
+                    try
+                    {
+                        a[i] = Convert.ToInt32(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Valor inválido!");
+                    }
+                }
             }
 
             Console.WriteLine("Array A:");
@@ -379,13 +441,25 @@ namespace exercicios_arrays
 
             // teste ok
             
-            int[] a = new int[3];
+            int[] a = new int[10];
             int i = 0;
 
             for(i = 0; i < a.Length; i++)
             {
-                Console.WriteLine("Digite um número inteiro:");
-                a[i] = Convert.ToInt32(Console.ReadLine());
+                while (true)
+                {
+                    Console.WriteLine("Digite um número inteiro:");
+
+                    try
+                    {
+                        a[i] = Convert.ToInt32(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Valor inválido!");
+                    }
+                }
 
             }
 
@@ -514,14 +588,27 @@ namespace exercicios_arrays
 
             for(i = 0; i < q.Length; i++)
             {
-                Console.WriteLine("Informe um número inteiro positivo:");
-                q[i] = Convert.ToInt32(Console.ReadLine());
-
-                if(q[i] > maior)
+                while (true)
                 {
-                    maior = q[i];
-                    index = i;
+                    Console.WriteLine("Informe um número inteiro positivo:");
+
+                    try
+                    {
+                        q[i] = Convert.ToInt32(Console.ReadLine());
+
+                        if(q[i] > maior)
+                        {
+                            maior = q[i];
+                            index = i;
+                        }
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Valor inválido!");
+                    }
                 }
+                
             }
 
             Console.WriteLine($"O maior elemento é o {maior}, e ocupa a posição {index} dentro do array.");
