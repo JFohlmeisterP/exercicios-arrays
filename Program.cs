@@ -7,7 +7,7 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {              
-            Array4();
+            uri();
         }
 
         static void Array1()
@@ -24,10 +24,11 @@ namespace exercicios_arrays
 
             for (i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine("Informe um valor inteiro para A:");
 
                 while(true)
                 {
+                    Console.WriteLine("Informe um valor inteiro para A:");
+
                    try
                    {
                         a[i] = Convert.ToInt32(System.Console.ReadLine());
@@ -36,7 +37,6 @@ namespace exercicios_arrays
                    catch (System.Exception)
                    {
                        Console.WriteLine("Valor inválido.");
-                       Console.WriteLine("Informe um valor inteiro para A:");
                    }
 
                 }
@@ -45,10 +45,11 @@ namespace exercicios_arrays
 
             for (i = 0; i < b.Length; i++)
             {
-                System.Console.WriteLine("Informe um valor inteiro para B:");
 
                 while(true)
                 {
+                    Console.WriteLine("Informe um valor inteiro para B:");
+
                    try
                    {
                         b[i] = Convert.ToInt32(System.Console.ReadLine());
@@ -57,7 +58,6 @@ namespace exercicios_arrays
                    catch (System.Exception)
                    {
                        Console.WriteLine("Valor inválido.");
-                       Console.WriteLine("Informe um valor inteiro para B:");
                    }
 
                 }
@@ -202,7 +202,7 @@ namespace exercicios_arrays
                 
             }
 
-            for (i = 0; i < b.Length; i++)
+            for (var i = 0; i < b.Length; i++)
             {
                 
                 while(true)
@@ -442,9 +442,8 @@ namespace exercicios_arrays
             // teste ok
             
             int[] a = new int[10];
-            int i = 0;
 
-            for(i = 0; i < a.Length; i++)
+            for(var i = 0; i < a.Length; i++)
             {
                 while (true)
                 {
@@ -704,6 +703,29 @@ namespace exercicios_arrays
             {
                 Console.WriteLine(item);
             }
+        }
+
+        static void uri() 
+        {
+            // Neste problema, deve-se ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, 
+            // o código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2. Após, calcule e mostre o valor 
+            // a ser pago.
+
+            
+            string[] product1 = Console.ReadLine().Split(' ');
+            int code1 = Convert.ToInt32(product1[0]);
+            int amount1 = Convert.ToInt32(product1[1]);
+            double price1 = Convert.ToDouble(product1[2]);
+
+            string[] product2 = Console.ReadLine().Split(' ');
+            int code2 = Convert.ToInt32(product2[0]);
+            int amount2 = Convert.ToInt32(product2[1]);
+            double price2 = Convert.ToDouble(product2[2]);
+
+            double totalSale = (amount1 * price1) + (amount2 * price2);
+              
+            Console.WriteLine($"VALOR A PAGAR: R$ {0:0.00}", totalSale);
+
         }
     }
 }
