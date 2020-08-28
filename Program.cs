@@ -7,7 +7,7 @@ namespace exercicios_arrays
     {
         static void Main(string[] args)
         {              
-            uri();
+            questão6();
         }
 
         static void Array1()
@@ -726,6 +726,244 @@ namespace exercicios_arrays
               
             Console.WriteLine($"VALOR A PAGAR: R$ {0:0.00}", totalSale);
 
+        }
+
+        static void questão1() 
+        {
+            Console.WriteLine("Informe a quantidade de horas e minutos trabalhados por dia:");
+            var horas = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Informe qual o valor ganho por hora:");
+            var valor = Convert.ToDouble(Console.ReadLine());
+
+            var salarioPorDia = horas * valor;
+
+            Console.WriteLine($"O valor ganho por um dia de trabalho é R${salarioPorDia.ToString("0.00")}");
+
+        }
+
+        static void questão2() 
+        {
+            string[] word = new string[30];
+            var result = "";
+
+            for(var i = 0; i < word.Length; i++)
+            {
+                Console.WriteLine("Digite uma letra ou digite Finalizar para apresentar a palavra.");
+                word[i] = Console.ReadLine();
+
+                if(word[i] != "Finalizar")
+                {
+                result += word[i];
+                }
+
+                if(word[i] == "Finalizar")
+                {
+                    break;
+                }
+            }
+            
+            Console.WriteLine($"{result}");
+
+        }
+
+        static void questão3() 
+        {
+            string[] nomes = new string[5];
+            int[] estadoCivil = new int[5];
+            
+
+            for(var i = 0; i < nomes.Length; i++)
+            {
+                Console.WriteLine("Informe seu nome:");
+                nomes[i] = Console.ReadLine();
+
+                Console.WriteLine("Se você é solteiro, digite [1]");
+                Console.WriteLine("Se você não é solteiro, digite [0]");
+                estadoCivil[i] = Convert.ToInt32(Console.ReadLine());
+
+            }
+            
+            for(var i = 0; i < nomes.Length; i++)
+            {
+                if(estadoCivil[i] == 1)
+                {
+                    Console.WriteLine($"{nomes[i]}");
+                }
+            }
+            
+        }
+
+        static void questão4()
+        {
+            var year = 0;
+
+            while(true)
+            {
+                Console.WriteLine("Informe seu ano de nascimento:");
+
+                try
+                {
+                    year = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (System.Exception)
+                {
+                    Console.WriteLine("Valor inválido.");
+                }
+
+            }
+        
+            if(year <= 2002)
+            {
+                Console.WriteLine("Você é maior de idade.");
+            }
+            else
+            {
+                Console.WriteLine("Você não é maior de idade.");
+            }
+            
+        }
+
+        static void questão5()
+        {
+
+            double?[] num = new double?[5];
+
+            for(var i = 0; i < 5; i++)
+            {
+                while(true)
+                {
+                    Console.WriteLine("Informe um número:");
+
+                    try
+                    {
+                        num[i] = Convert.ToDouble(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Número inválido.");
+                        num[i] = null;
+                        break;
+                    }
+
+                }
+
+            }
+
+            Console.WriteLine("Lista de números válidos:");
+
+            for(var i = 0; i < 5; i++)
+            {
+                if(num[i] != null)
+                {
+                Console.WriteLine($"{num[i]}");
+                }
+            }
+
+        }
+
+        static void questão6()
+        {
+            
+            var counter = 0;
+            var sum = 0.0;
+
+            while(true)
+            {
+                Console.WriteLine("Informe o salário:");
+                var salary = Convert.ToDouble(Console.ReadLine());
+                counter++;
+                sum += salary;
+                
+                if(salary < 0)
+                {
+
+                Console.WriteLine("Valor inválido.");
+                Console.WriteLine("Informe o salário:");
+                salary = Convert.ToDouble(Console.ReadLine());
+                counter++;
+                sum += salary;
+
+                }
+
+                Console.WriteLine("Para calcular a média salarial, digite [calcular]:");
+                Console.WriteLine("Para continuar informando os salários, aperte qualquer tecla.");
+                var calculate = Console.ReadLine();
+
+                if(calculate == "calcular")
+                {
+                    break;
+                }
+                
+
+            }
+
+            var averageSalary = sum / counter;
+            Console.WriteLine($"A média salarial é de R${averageSalary.ToString("0.00")}");
+
+        }
+
+        static void questão7()
+        {
+
+            int[] state = new int[5];
+            var counter = 0;
+
+            for(var i = 0; i < 5; i++)
+            {
+
+                Console.WriteLine("[11] RO\n[12] AC\n[13] AM\n[14] RR\n[15] PA\n[16] AP\n[17] TO\n[21] MA\n[22] PI\n[23] CE\n[24] RN");
+                Console.WriteLine("[25] PB\n[26] PE\n[27] AL\n[28] SE\n[29] BA\n[31] MG\n[32] ES\n[33] RJ\n[35] SP\n[41] PR\n[42] SC");
+                Console.WriteLine("[43] RS\n[50] MS\n[51] MT\n[52] GO\n[53] DF");
+                Console.WriteLine("Digite o ID correspondente ao estado em que você nasceu:");
+                state[i] = Convert.ToInt32(Console.ReadLine());
+
+                if(state[i] == 42)
+                {
+                    counter++;
+                }
+                
+            }
+
+            var percentage = (counter * 100) / 5;
+            Console.WriteLine($"O percentual de nascidos em SC é de {percentage}%");
+
+
+
+        }
+
+        static void questão8()
+        {
+
+            string[] matutino = new string[5];
+            string[] vespertino = new string[5];
+
+            for(var i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Informe o nome do aluno da turma matutina:");
+                matutino[i] = Console.ReadLine();
+
+                Console.WriteLine("Informe o nome do aluno da turma vespertina:");
+                vespertino[i] = Console.ReadLine();
+            }
+
+            var counter = 0;
+
+            for(var i = 0; i < 5; i++)
+            {
+                if(matutino[i] == vespertino[i])
+                {
+                    Console.WriteLine($"{matutino[i]}");
+                    counter++;                   
+                }
+                else if(counter == 0)
+                {
+                    Console.WriteLine("Todos os alunos estudam em meio período.");
+                    break;
+                }
+            }
         }
     }
 }
